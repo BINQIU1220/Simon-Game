@@ -24,5 +24,13 @@ function nextSequence() {
 $(document).on("click", ".btn", function (e) {
   let userChosenColour = this.id;
   userClickedPattern.push(userChosenColour);
+  animatePress(userChosenColour);
   playSound(userChosenColour);
 });
+
+function animatePress(currentColour) {
+  $(`#${currentColour}`).addClass("pressed");
+  setTimeout(() => {
+    $(`#${currentColour}`).removeClass("pressed");
+  }, 100);
+}
