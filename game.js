@@ -24,6 +24,8 @@ function nextSequence() {
 
   let randomChosenColour = buttonColours[randomNumber];
 
+  userClickedPattern = [];
+
   gamePattern.push(randomChosenColour);
 
   $(`#${randomChosenColour}`).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
@@ -51,6 +53,8 @@ function checkPatters(currentlevel) {
     }, 200);
 
     $("#level-title").text("Game Over, Press Any Key to Restart");
+
+    restartGame();
   }
 }
 
@@ -73,3 +77,8 @@ $(document).keydown(function (e) {
     nextSequence();
   }
 });
+
+function restartGame() {
+  level = 0;
+  gamePattern = [];
+}
