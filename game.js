@@ -38,7 +38,16 @@ function nextSequence() {
 function checkPatters(level) {
   if (userClickedPattern[level - 1] === gamePattern[level - 1]) {
     console.log("Advance");
-  } else console.log("Failed");
+    console.log("userClickedPattern >>> " + userClickedPattern);
+    console.log("gamePattern >>> " + gamePattern);
+    setTimeout(() => {
+      nextSequence();
+    }, 1000);
+  } else {
+    console.log("Failed");
+    console.log("userClickedPattern >>> " + userClickedPattern);
+    console.log("gamePattern >>> " + gamePattern);
+  }
 }
 
 $(document).on("click", ".btn", function (e) {
@@ -50,13 +59,7 @@ $(document).on("click", ".btn", function (e) {
 
   playSound(userChosenColour);
 
-  if (level !== 0) {
-    setTimeout(() => {
-      nextSequence();
-    }, 1000);
-  }
-
-  if (level >= 1) {
+  if (level >= 1 && userClickedPattern.length === gamePattern.length) {
     checkPatters(level);
   }
 });
