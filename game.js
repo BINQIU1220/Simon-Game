@@ -40,6 +40,7 @@ function checkPatters(level) {
     console.log("Advance");
     console.log("userClickedPattern >>> " + userClickedPattern);
     console.log("gamePattern >>> " + gamePattern);
+    userClickedPattern = [];
     setTimeout(() => {
       nextSequence();
     }, 1000);
