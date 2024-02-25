@@ -35,6 +35,12 @@ function nextSequence() {
   $("#level-title").text(`Level ${level}`);
 }
 
+function checkPatters(level) {
+  if (userClickedPattern[level - 1] === gamePattern[level - 1]) {
+    console.log("Advance");
+  } else console.log("Failed");
+}
+
 $(document).on("click", ".btn", function (e) {
   let userChosenColour = this.id;
 
@@ -48,6 +54,10 @@ $(document).on("click", ".btn", function (e) {
     setTimeout(() => {
       nextSequence();
     }, 1000);
+  }
+
+  if (level >= 1) {
+    checkPatters(level);
   }
 });
 
